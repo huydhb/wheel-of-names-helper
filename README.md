@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# wheel-of-names-extension
-=======
 # Hack Wheel of Names Extension 🎯
 
 Tiện ích mở rộng Chrome (Manifest V3) hỗ trợ điều khiển kết quả vòng quay **Wheel of Names**, **Wheel Random**, **Spin the Wheel**.
