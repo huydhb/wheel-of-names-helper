@@ -74,7 +74,7 @@
 
     if (window.ufs_interval) clearInterval(window.ufs_interval);
 
-    window.ufs_interval = setInterval(() => {
+    function doCheck() {
       const entries = getEntries();
       if (!entries.length) {
         sendStatusUpdate({ active: true, found: false, missingTarget: targets[0], message: `Đang chờ vòng quay nạp danh sách...` });
@@ -111,7 +111,13 @@
         targetIndex: targetIndex,
         totalEntries: entries.length
       });
-    }, 300);
+    }
+
+    // Chạy ngay lập tức lần đầu tiên để có kết quả phản hồi tức thì
+    doCheck();
+
+    // Duy trì kiểm tra liên tục mỗi 300ms
+    window.ufs_interval = setInterval(doCheck, 300);
   }
 
   window.addEventListener("message", (event) => {

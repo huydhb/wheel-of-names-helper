@@ -29,7 +29,7 @@
         window.postMessage({ type: "UFS_START_HACK", targets: req.targets }, "*");
         setTimeout(() => {
           sendResponse({ status: latestStatus });
-        }, 100);
+        }, 50);
         return true;
       } else if (req.action === "stop_hack") {
         window.postMessage({ type: "UFS_STOP_HACK" }, "*");
