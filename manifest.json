@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Hack Wheel of Names",
+  "version": "1.0.0",
+  "description": "Tự động hack kết quả Wheel of Names với giao diện điều khiển nổi.",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": [
+    "https://wheelofnames.com/*",
+    "https://wheelrandom.com/*",
+    "https://spinthewheel.io/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://wheelofnames.com/*",
+        "https://wheelrandom.com/*",
+        "https://spinthewheel.io/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "Hack Wheel of Names",
+    "default_popup": "popup.html"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["inject.js"],
+      "matches": [
+        "https://wheelofnames.com/*",
+        "https://wheelrandom.com/*",
+        "https://spinthewheel.io/*"
+      ]
+    }
+  ]
+}
