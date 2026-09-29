@@ -1,0 +1,1 @@
+const T=["wheelofnames.com","wheelrandom.com","spinthewheel.io"],S={TARGET_NAMES:"targetNames",IS_ACTIVE:"isActive"},A={START:"start_hack",STOP:"stop_hack",GET_STATUS:"get_status"},_={START_HACK:"UFS_START_HACK",STOP_HACK:"UFS_STOP_HACK",GET_STATUS:"UFS_GET_STATUS",STATUS_UPDATE:"UFS_STATUS_UPDATE"};export{A as E,_ as P,S,T as a};

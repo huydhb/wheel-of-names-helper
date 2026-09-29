@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wheel Helper</title>
+  <link rel="stylesheet" href="./popup.css" />
+</head>
+<body>
+  <div class="card">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <span class="logo" role="img" aria-label="Wheel">🎡</span>
+        <div class="title-wrap">
+          <span class="title">Wheel Helper</span>
+          <span class="badge">v2.0.0</span>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <!-- Toggle Guide Button -->
+        <button id="help-btn" class="help-btn" type="button" title="Xem hướng dẫn sử dụng" aria-label="Hướng dẫn">
+          ?
+        </button>
+
+        <!-- Toggle Switch -->
+        <div class="toggle-wrap">
+          <span id="toggle-text" class="toggle-label">OFF</span>
+          <div id="toggle-btn" class="toggle-track" role="switch" aria-checked="false" tabindex="0">
+            <div class="toggle-thumb"></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Collapsible Help / Guide Panel -->
+    <div id="guide-panel" class="guide-panel hidden">
+      <div class="guide-header">
+        <div class="guide-title">
+          <span>📖</span>
+          <strong>Hướng dẫn sử dụng nhanh</strong>
+        </div>
+        <button id="close-guide-btn" class="close-guide-btn" type="button" aria-label="Đóng hướng dẫn">✕</button>
+      </div>
+      <ol class="guide-steps">
+        <li>Mở tab trang <b>wheelofnames.com</b></li>
+        <li>Bật công tắc sang <b>ON</b></li>
+        <li><b>Chọn nhanh từ danh sách</b> hoặc <b>nhập tên mục tiêu</b></li>
+        <li>Bấm <b>Áp Dụng</b> hoặc gõ phím <b>Enter</b></li>
+        <li>Quay bánh xe — kết quả sẽ luôn chọn đúng tên bạn muốn!</li>
+      </ol>
+    </div>
+
+    <!-- Quick Dropdown Selection from Wheel Entries -->
+    <div class="select-group">
+      <div class="select-header">
+        <label class="label" for="target-select">🎯 Chọn nhanh từ vòng quay:</label>
+        <span id="entries-count" class="entries-badge">0 mục</span>
+      </div>
+      <div class="select-wrapper">
+        <select id="target-select" class="target-select">
+          <option value="" disabled selected>-- Chọn tên từ vòng quay --</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Quick Chips of Wheel Entries -->
+    <div id="quick-chips" class="quick-chips"></div>
+
+    <!-- Manual Target Names Input -->
+    <div class="input-group">
+      <label class="label" for="target-input">Hoặc nhập thủ công (ưu tiên trái qua phải):</label>
+      <div class="input-wrapper">
+        <input
+          type="text"
+          id="target-input"
+          placeholder="VD: C hoặc C, B, A"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button id="clear-input-btn" class="clear-input-btn hidden" type="button" title="Xóa">✕</button>
+      </div>
+    </div>
+
+    <!-- Apply Button -->
+    <button id="btn-apply" class="btn-apply" disabled>
+      <span>Áp Dụng</span>
+    </button>
+
+    <!-- Status Bar -->
+    <div id="status-bar" class="status-bar idle">
+      <span id="status-dot" class="status-dot"></span>
+      <span id="info-log" class="status-text">Đang kiểm tra kết nối...</span>
+    </div>
+  </div>
+
+  <script type="module" src="./popup.ts"></script>
+</body>
+</html>

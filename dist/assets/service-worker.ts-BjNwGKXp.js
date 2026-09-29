@@ -1,0 +1,1 @@
+chrome.runtime.onInstalled.addListener(e=>{if(e.reason==="install")console.log("[Wheel of Names Helper] Extension installed successfully.");else if(e.reason==="update"){const o=chrome.runtime.getManifest().version;console.log(`[Wheel of Names Helper] Updated to version ${o}.`)}});

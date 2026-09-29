@@ -3,7 +3,11 @@
   "name": "Wheel of Names Helper",
   "version": "2.0.0",
   "description": "Hỗ trợ học tập và điều khiển vòng quay Wheel of Names.",
-  "permissions": ["storage", "activeTab", "scripting"],
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
   "icons": {
     "16": "public/icons/icon-16.png",
     "48": "public/icons/icon-48.png",
@@ -15,26 +19,31 @@
     "https://spinthewheel.io/*"
   ],
   "background": {
-    "service_worker": "src/background/service-worker.ts"
+    "service_worker": "service-worker-loader.js",
+    "type": "module"
   },
   "content_scripts": [
     {
+      "js": [
+        "assets/inject.ts-4708chN6.js"
+      ],
       "matches": [
         "https://wheelofnames.com/*",
         "https://wheelrandom.com/*",
         "https://spinthewheel.io/*"
       ],
-      "js": ["src/content/inject.ts"],
       "world": "MAIN",
       "run_at": "document_start"
     },
     {
+      "js": [
+        "assets/content.ts-loader-DVe6VaXw.js"
+      ],
       "matches": [
         "https://wheelofnames.com/*",
         "https://wheelrandom.com/*",
         "https://spinthewheel.io/*"
       ],
-      "js": ["src/content/content.ts"],
       "run_at": "document_idle"
     }
   ],
@@ -48,12 +57,28 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["src/content/inject.ts"],
       "matches": [
+        "https://spinthewheel.io/*",
         "https://wheelofnames.com/*",
-        "https://wheelrandom.com/*",
-        "https://spinthewheel.io/*"
-      ]
+        "https://wheelrandom.com/*"
+      ],
+      "resources": [
+        "src/content/inject.ts",
+        "assets/constants-B66gMe_h.js",
+        "assets/inject.ts-4708chN6.js",
+        "assets/src-content-content.ts-TJ090lFC.js"
+      ],
+      "use_dynamic_url": false
+    },
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "resources": [
+        "assets/inject.ts-4708chN6.js"
+      ],
+      "use_dynamic_url": false
     }
   ]
 }
